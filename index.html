@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<script>
+		// console.log();
+
+		// var toggle = true;
+
+
+		/*==== УСЛОВНЫЕ ОПЕРАТОРЫ: IF, '?' START ====*/
+		// https://learn.javascript.ru/ifelse
+
+		// ====Получить знак числа
+		(function () {
+			if (0) {
+
+				var aa = prompt('', 100);
+				a = -1;
+				if (aa == 0) a = 0
+					else if (aa > 0) a = 1
+						console.log(a);
+
+				}
+			})();
+
+		// Проверка логина
+		(function () {
+			if (0) {
+
+				var login, pass;
+
+				login = prompt("введите логин (admin)");
+
+				if (login == "admin") {
+
+					login = prompt("введите пароль (Black Overlord)");
+
+					if (login == "Black Overlord") {
+						alert("Добро пожаловать!");
+					} else if (login == null) {
+						alert("Вход отменён");
+					} else {
+						alert("Пароль неверен");
+					}
+				}
+				else if (login == null) {
+					alert("Вход отменён");
+				}
+				else {
+					alert("Я вас не знаю");
+				}
+
+			}
+		})();
+
+		// ====Перепишите 'if' в '?'
+		(function () {
+			if(0) {
+				var a = +prompt();
+				var b = +prompt();
+				var result = (a + b < 4) ? 'Мало' : 'Много';
+				console.log(result);
+			}
+		})();
+
+		// ====Перепишите 'if' в '?'
+		(function () {
+			if (0) {
+				var message,login;
+				login = prompt();
+
+				message = 
+				login == 'Вася' ? "Привет" :
+				login == "Директор" ? "Здравствуйте":
+				login == "" ? "Нет логина" :
+				"..."
+				console.log(message);
+			}
+		})();
+
+		/*==== УСЛОВНЫЕ ОПЕРАТОРЫ: IF, '?' END ====*/
+
+		/*==== ЛОГИЧЕСКИЕ ОПЕРАТОРЫ START ====*/
+		// https://learn.javascript.ru/logical-ops
+
+		// Проверка if внутри диапазона
+		(function () {
+			if (0) {
+				var age = 14;
+				if (age >= 14 && age <= 90) {
+					console.log('ok');
+				}
+			}
+		})();
+
+		// Проверка if вне диапазона
+		(function () {
+			if (0) {
+				var age = 91;
+				if (!(age >= 14 && age <= 90)) {
+					console.log('ok &&');
+				}
+				if (age < 14 || age > 90) {
+					console.log('ok ||');
+				}
+			}
+		})();
+
+		/*==== ЛОГИЧЕСКИЕ ОПЕРАТОРЫ END ====*/
+
+		/*==== ПРЕОБРАЗОВАНИЕ ТИПОВ ДЛЯ ПРИМИТИВОВ START ====*/
+		// https://learn.javascript.ru/types-conversion
+		(function () {
+			if(0) {
+				console.log("" + 1 + 0) // "10"
+				"" - 1 + 0 // -1
+				console.log(true + false) // 1
+				6 / "3" // 2
+				"2" * "3" // 6
+				4 + 5 + "px" // "9px"
+				"$" + 4 + 5 // "$45"
+
+				"4" - 2 // 2
+
+				"4px" - 2 // NaN
+
+				7 / 0 // Infinity
+
+				"  -9\n" + 5 // " -9\n5"
+				"  -9\n" - 5 // -14
+				5 && 2 // 2
+
+				2 && 5 // 5
+
+				5 || 0 // 5
+
+				0 || 5 // 5
+				null + 1 // 1
+				undefined + 1 // NaN
+				null == "\n0\n" // false
+				+null == +"\n0\n" // true
+			}
+		})();
+		/*==== ПРЕОБРАЗОВАНИЕ ТИПОВ ДЛЯ ПРИМИТИВОВ END ====*/
+
+		/*==== ЦИКЛЫ WHILE, FOR START ====*/
+		(function () {
+
+			// while
+			if (0) {
+				var i = 0;
+				while (i < 3) {
+					console.log(i);
+					i++; 
+				}
+				console.log('');
+
+				// при i, равном 0, значение в скобках будет false и цикл остановится
+				var a = 3;
+				while (a) { 
+					console.log(a);
+					a--;
+				}
+
+				console.log('');
+
+				var x = 0;
+				do {
+					console.log(x);
+					x++;
+				} while (x < 3);
+
+				// for
+				if (1 - 1) {
+					for(var c = 0; c < 3; c++) {
+						console.log(c);
+					}
+				}
+
+				// for - break
+				if (0) {
+					var sum = 0;
+
+					while (true) {
+						var value = +prompt("Введите число", '');
+						if (!value) break;
+						sum += value;
+					}
+					console.log( 'Сумма: ' + sum );
+				}
+				// for - continue
+				if (0) {
+					for (var con = 0; con < 10; con++) {
+						if (con % 2 == 0) continue;
+						console.log(con);
+					}
+				}
+
+				// for - break - label
+				if (0) {
+					outer: for(var l = 0; l < 2; l++) {
+						for (var j = 0; j < 2; j++) {
+							var inp = prompt('Значение в координатах '+l+','+j, '');
+							if (!inp) break outer;
+						}
+					}
+					console.log('finish');
+				}
+			}
+		})();
+
+		// practice
+		(function () {
+		// Выведите чётные числа
+		if (0) {
+			for (var tt = 2; tt <= 10; tt++) {
+				if (tt % 2 != 0) continue;
+				console.log(tt);
+			}
+		}
+		// Замените for на while
+		if (0) {
+			for (var i = 0; i < 3; i++) {
+				console.log( "номер " + i + "!" );
+			}
+
+			console.log("while");
+			var a = 0;
+			while(a < 3) {
+				console.log( "номер " + a + "!" );
+				a++;
+			}
+		}
+		if (0) {
+			while (true) {
+				var num = prompt("input number");
+				console.log(num);
+				if (num == null || (num > 100)) break;
+			}
+		}
+
+	})();
+
+	/*==== ЦИКЛЫ WHILE, FOR END ====*/
+
+	/*==== КОНСТРУКЦИЯ SWITCH STAR ====*/
+
+	(function () {
+
+			// theory
+
+			if(0) {
+				var x = 9-2;
+				if (x == 1) x = String(x);
+			// console.log(x);
+			switch(x) {
+				case "1": console.log("one (string)"); break;
+				case 2: console.log("two"); break;
+				case 3: console.log("three"); break;
+				case 4: case 7: console.log("some"); break;
+				default: console.log("err"); break;
+			}
+		}
+
+			// practice
+
+			// Напишите if..else, соответствующий следующему switch:
+			if(0) {
+				var browser = "IE";
+				switch (browser) {
+					case 'IE':
+					console.log( 'О, да у вас IE!' );
+					break;
+
+					case 'Chrome':
+					case 'Firefox':
+					case 'Safari':
+					case 'Opera':
+					console.log( 'Да, и эти браузеры мы поддерживаем' );
+					break;
+
+					default:
+					console.log( 'Мы надеемся, что и в вашем браузере все ок!' );
+				}
+			}
+
+			if(0) {
+
+				var
+				a = "IE",
+				b = "Chrome",
+				c = "other"
+
+				var browser = b;
+				if (browser === "IE") {
+					console.log( "О, да у вас IE!" );
+				}
+				else if (browser === ("Chrome" || "Firefox" || "Safari" || "Opera")) {
+					console.log("Да, и эти браузеры мы поддерживаем");
+				}
+				else {
+					console.log("Мы надеемся, что и в вашем браузере все ок!");
+				}
+			}
+
+			// Переписать if'ы в switch
+			if(0) {
+				// var a = +prompt('a?', '');
+				var a = 1;
+
+				if (a == 0) {
+					console.log( 0 );
+				}
+				if (a == 1) {
+					console.log( 1 );
+				}
+
+				if (a == 2 || a == 3) {
+					console.log( '2,3' );
+				}
+			}
+
+			if(0) {
+
+				var a = 3;
+
+				switch(a) {
+					case 0: console.log(0); break;
+					case 1: console.log(1); break;
+					case 2: case 3: console.log("2,3"); break;
+					default: console.log("default");
+				}
+			}
+
+		})();
+
+		/*==== КОНСТРУКЦИЯ SWITCH END ====*/
+
+		/*==== ФУНКЦИИ START ====*/
+
+		(function () {
+
+			// Перепишите функцию, используя оператор '?' или '||'
+			var age = 20;
+
+			function showConfirm () {
+				console.log(false);
+				var shConf = confirm('Родители разрешили?');
+				console.log('confirm: ' + shConf);
+			};
+
+			if (0) {
+				function checkAge(age) {
+					if (age > 18) {
+						return true;
+					} else {
+						return showConfirm();
+					}
+				}
+				checkAge(age);
+			};
+
+			// 1
+			if (0) {
+				function checkAge(age) {
+					return (age > 18) ? true : showConfirm();
+				};
+				console.log(checkAge(age));
+			};
+
+			// 2
+			// 2.1 - my
+			if (0) {
+				function checkAge(age) {
+					var ab = age > 18;
+					ab = ab || showConfirm();
+
+					ab ? console.log(true) : '';
+					return ab;
+				};
+				checkAge(age);
+			};
+
+			// 2.2 - source
+			if (0) {
+				function checkAge(age) {
+					return (age > 18) || showConfirm();
+				};
+				checkAge(age);
+			};
+
+			// Функция min
+			if(0) {
+				function min(a, b) {
+					return a < b ? a : b;
+				}
+
+				var pr1 = min(2, 5);
+				var pr2 = min(3, -1);
+				var pr3 = min(1, 1);
+
+				console.log(pr1);
+				console.log(pr2);
+				console.log(pr3);
+			}
+
+			if(0) {
+				function pow(x,n) {
+					var
+					i = 1;
+					result = x;
+					for (i; i < n; i++) {
+						result *= x;
+					}
+					return result;
+				}
+
+				console.log(pow(3, 2));
+				console.log(pow(3, 3));
+				console.log(pow(1, 100));
+			}
+
+		})();
+
+		/*==== ФУНКЦИИ END ====*/
+
+		/*==== РЕКУРСИЯ, СТЕК START ====*/
+		(function() {
+
+			// Вычислить сумму чисел до данного
+			// 1.1
+			if(0) {
+				function sumTo1(x) {
+					var i;
+					var res = x;
+					for(i=1;i<x;i++) {
+						res += i;
+					}
+					return res;
+				}
+				console.log(sumTo1(4));
+			}
+
+			// 1.2
+			if(0) {
+				function sumTo2(x) {
+					if (x==1) {
+						return x;
+					}
+						return x + sumTo2(x - 1);
+				}
+				console.log(sumTo2(4));
+			}
+
+			// Вычислить факториал
+			if(0) {
+				function fac(n) {
+					if(n < 0) return 'error';
+					if(n < 2) return 1;
+					return n * fac(n - 1);
+				}
+				console.log(fac(5));
+			}
+
+		})();
+	/*==== РЕКУРСИЯ, СТЕК END ====*/
+
+</script>
+
+<ul class="list">
+	<li><a href="/alljs.html">All js</a></li>
+	<li><a href="/data_structure.html">Структуры данных</a></li>
+	<li><a href="/task.html">Task count</a></li>
+	<li><a href="/task2.html">Task image</a></li>
+</ul>
+
+</body>
+</html>

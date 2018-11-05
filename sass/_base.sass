@@ -1,0 +1,53 @@
+*,
+::before,
+::after
+	padding: 0
+	margin: 0
+	box-sizing: inherit
+
+html
+	box-sizing: border-box
+	font-family: sans-serif
+
+a
+	color: $main
+	text-decoration: none
+	transition: all .2s
+	&:hover
+		color: $secondary
+
+.list
+	margin: 20px
+	list-style: none
+	li
+		font-size: 18px
+		+ li
+			margin-top: 20px
+		a
+			display: inline-block
+			background-color: $main
+			color: #fff
+			padding: 4px 10px
+			&:hover
+				background-color: $secondary
+	&-item
+		font-size: 18px
+		a
+			display: inline-block
+			margin: 10px
+			background-color: $main
+			color: #fff
+			padding: 4px 10px
+			&:hover
+				background-color: $secondary
+
+.back
+	display: inline-block
+	margin: 10px
+	padding: 6px 10px 4px
+	border: 2px solid
+	background-color: darken(white, 3%)
+	text-transform: uppercase
+	font-weight: 700
+	&:hover
+		background-color: transparent
