@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<ul>
+		<li><a href="/" class="back">to home</a></li>
+	</ul>
+	
+	<script>
+		// Info
+		// str.toUpperCase() - метод который возвращает строку в верхнем регистре
+		// num.toFixed(n)) кругляет число num до n знаков после запятой
+		// isNaN(n) - NaN true
+		// isFinite(n) - преобразует аргумент к числу и возвращает true, если это не NaN/Infinity/-Infinity
+
+		/*==== ОБЪЕКТЫ КАК АССОЦИАТИВНЫЕ МАССИВЫ START ====*/
+		// Создание объектов
+		/*
+		1. o = new Object();
+		2. o = {};
+		*/
+
+		// доступ к свойствам объекта
+		// объект.свойство
+		// объект['свойство']
+
+		(function() {
+			if (0) {
+				var person = {
+					name: "Jon",
+					age: 30,
+					size: {
+						top: 90,
+						middle: 60,
+						bottom: 90
+					}
+				};
+
+				person['name'] = 'Jack';
+
+				delete person.age;
+				person.age = 25;
+
+				console.log('age' in person); /*проверка in*/
+
+				if (person.age !== undefined) console.log(person['age']); /*проверка === undefined*/
+
+				console.log(person);
+
+				/*Доступ к свойству через переменную*/
+				var key = 'age';
+				console.log( person[key] );
+			}
+		})();
+
+		// Первый объект
+
+		(function () {
+
+			if(0) {
+
+				var user = {};
+				user.name = 'Вася';
+				user.surname = 'Петров';
+				user.name = 'Сергей';
+				delete user.name;
+
+			}
+
+		})();
+
+		/*==== ОБЪЕКТЫ КАК АССОЦИАТИВНЫЕ МАССИВЫ END ====*/
+
+		/*==== ОБЪЕКТЫ: ПЕРЕБОР СВОЙСТВ START ====*/
+		
+		// for..in // for (key in obj)
+
+		(function() {
+
+			if(0) {
+
+				var menu = {
+					width: 300,
+					height: 200,
+					title: "Menu"
+				};
+
+				for (var key in menu) {
+					console.log('option: ' + key + '\n value: ' + menu[key]);
+				}
+
+			}
+
+		})();
+
+		/*==== ОБЪЕКТЫ: ПЕРЕБОР СВОЙСТВ END ====*/
+
+
+	</script>
+
+</body>
+</html>

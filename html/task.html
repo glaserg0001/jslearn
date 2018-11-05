@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<ul>
+		<li><a href="/" class="back">to home</a></li>
+		<li class="list-item"><a href="https://confluence.ontrq.com/pages/viewpage.action?spaceKey=KB&title=Easy+level+-+native+JS" target="_blank">Easy level - native JS</a></li>
+	</ul>
+
+	<textarea name="message" id="js-message" cols="30" rows="10"></textarea>
+	<p>Symbols total: <b id="js-message-left-total">0</b>, left: <b id="js-message-left-symbols">0</b></p>
+
+	<script>
+		
+		var TextCounter = {
+			maxChar: 140,
+			textArea: null,
+			textAreaTotal: null,
+			textAreaLeft: null,
+			init: function() {
+				this.textArea = document.querySelector('#js-message');
+				this.textAreaTotal = document.querySelector('#js-message-left-total');
+				this.textAreaLeft = document.querySelector('#js-message-left-symbols');
+				
+				this.events();
+			},
+			
+			events: function() {},
+			// ... put you methods here
+		};
+		
+	</script>
+
+</body>
+</html>
