@@ -12,8 +12,10 @@
 		<li class="list-item"><a href="https://confluence.ontrq.com/pages/viewpage.action?spaceKey=KB&title=Easy+level+-+native+JS" target="_blank">Easy level - native JS</a></li>
 	</ul>
 
-	<textarea name="message" id="js-message" cols="30" rows="10"></textarea>
-	<p>Symbols total: <b id="js-message-left-total">0</b>, left: <b id="js-message-left-symbols">0</b></p>
+	<div class="wrapper">
+		<textarea class="input" name="message" id="js-message" cols="30" rows="10" spellcheck="false">wdawdawdawdawdawdrty</textarea>
+		<p>Symbols total: <b id="js-message-left-total">0</b>, left: <b id="js-message-left-symbols">0</b></p>
+	</div>
 
 	<script>
 		
@@ -30,10 +32,37 @@
 				this.events();
 			},
 			
-			events: function() {},
-			// ... put you methods here
+			events: function() {
+				this.counterTotal();
+				this.listener();
+			},
+
+			counterTotal: function() {
+				var countChar = this.textArea.value.length;
+				var countCharLeft = this.maxChar - countChar;
+				
+				this.textAreaTotal.innerHTML = countChar;
+				this.textAreaLeft.innerHTML = countCharLeft;
+			},
+
+			listener: function() {
+				this.textArea.onkeyup = function (e) {
+					// console.log(e);
+					TextCounter.counterTotal()
+				}
+			}
+			
 		};
-		
+
+		TextCounter.init();
+
+
+	</script>
+
+	<script>
+		// 1. додати прослушку для keyup
+		// 2. заборона вводу тексту більше 140 символів
+		// 3. розрфшити ввод: all arrows, backspace, insert, delete, home, end
 	</script>
 
 </body>
