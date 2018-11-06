@@ -13,14 +13,14 @@
 	</ul>
 
 	<div class="wrapper">
-		<textarea class="input" name="message" id="js-message" cols="30" rows="10" spellcheck="false">wdawdawdawdawdawdrty</textarea>
+		<textarea class="input" name="message" id="js-message" cols="30" rows="10" spellcheck="false">1234</textarea>
 		<p>Symbols total: <b id="js-message-left-total">0</b>, left: <b id="js-message-left-symbols">0</b></p>
 	</div>
 
 	<script>
 		
 		var TextCounter = {
-			maxChar: 140,
+			maxChar: 20,
 			textArea: null,
 			textAreaTotal: null,
 			textAreaLeft: null,
@@ -34,8 +34,8 @@
 			
 			events: function() {
 				this.counterTotal();
-				this.listener();
-				// this.textArea.addEventListener('onkeyup', this.counterTotal);
+				// this.listener();
+				this.textArea.addEventListener('keypress', this.listener);
 			},
 
 			counterTotal: function() {
@@ -47,16 +47,31 @@
 				return countCharLeft;
 			},
 
-			listener: function() {
-				// this.textArea.addEventListener('onkeyup', TextCounter.counterTotal, false);
+			listener: function(event) {
 				var self = this;
-				this.textArea.onkeyup = function (e) {
-					// console.log(e);
-					e.preventDefault();
-					self.counterTotal();
-					// console.log(TextCounter.counterTotal());
-					console.log(self.counterTotal())
+				var count = TextCounter.counterTotal();
+				var k = event.keyCode;
+
+
+				if (count <= 0) {
+					if (
+						k == 8 || 
+						k == 35 || 
+						k == 36 || 
+						k == 46 || 
+						k == 45 || 
+						k == 37 || 
+						k == 38 || 
+						k == 39 || 
+						k == 40
+						) return;
+					event.preventDefault();
 				}
+				// this.textArea.onkeyup = function (e) {
+				// 	console.log(TextCounter.counterTotal());
+				// 	--
+				// 	console.log(self.counterTotal())
+				// }
 			}
 			
 		};
@@ -69,7 +84,7 @@
 	<script>
 		// 1. додати прослушку для keyup
 		// 2. заборона вводу тексту більше 140 символів
-		// 3. розрфшити ввод: all arrows, backspace, insert, delete, home, end
+		// 3. розрішити ввод: all arrows, backspace, insert, delete, home, end
 	</script>
 
 </body>
