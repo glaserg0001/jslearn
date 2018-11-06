@@ -44,7 +44,7 @@
 
 				this.textAreaTotal.innerHTML = countChar;
 				this.textAreaLeft.innerHTML = countCharLeft;
-				// return countCharLeft;
+				return countCharLeft;
 			},
 
 			listener: function() {
@@ -52,8 +52,10 @@
 				var self = this;
 				this.textArea.onkeyup = function (e) {
 					// console.log(e);
+					e.preventDefault();
 					self.counterTotal();
 					// console.log(TextCounter.counterTotal());
+					console.log(self.counterTotal())
 				}
 			}
 			
