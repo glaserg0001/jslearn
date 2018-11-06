@@ -35,20 +35,25 @@
 			events: function() {
 				this.counterTotal();
 				this.listener();
+				// this.textArea.addEventListener('onkeyup', this.counterTotal);
 			},
 
 			counterTotal: function() {
 				var countChar = this.textArea.value.length;
 				var countCharLeft = this.maxChar - countChar;
-				
+
 				this.textAreaTotal.innerHTML = countChar;
 				this.textAreaLeft.innerHTML = countCharLeft;
+				// return countCharLeft;
 			},
 
 			listener: function() {
+				// this.textArea.addEventListener('onkeyup', TextCounter.counterTotal, false);
+				var self = this;
 				this.textArea.onkeyup = function (e) {
 					// console.log(e);
-					TextCounter.counterTotal()
+					self.counterTotal();
+					// console.log(TextCounter.counterTotal());
 				}
 			}
 			
