@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<ul>
+		<li><a href="/" class="back">to home</a></li>
+		<li class="list-item"><a href="https://confluence.ontrq.com/pages/viewpage.action?spaceKey=KB&title=Easy+level+-+native+JS" target="_blank">Easy level - native JS</a></li>
+	</ul>
+
+	<div class="wrapper">
+		<textarea class="input" name="message" id="js-message" cols="30" rows="10" spellcheck="false">wdawdawdawdawdawdrty</textarea>
+		<p>Symbols total: <b id="js-message-left-total">0</b>, left: <b id="js-message-left-symbols">0</b></p>
+	</div>
+
+	<script>
+		
+		var TextCounter = {
+			maxChar: 140,
+			textArea: null,
+			textAreaTotal: null,
+			textAreaLeft: null,
+			init: function() {
+				this.textArea = document.querySelector('#js-message');
+				this.textAreaTotal = document.querySelector('#js-message-left-total');
+				this.textAreaLeft = document.querySelector('#js-message-left-symbols');
+				
+				this.events();
+			},
+			
+			events: function() {
+				this.counterTotal();
+				this.listener();
+				// this.textArea.addEventListener('onkeyup', this.counterTotal);
+			},
+
+			counterTotal: function() {
+				var countChar = this.textArea.value.length;
+				var countCharLeft = this.maxChar - countChar;
+
+				this.textAreaTotal.innerHTML = countChar;
+				this.textAreaLeft.innerHTML = countCharLeft;
+				return countCharLeft;
+			},
+
+			listener: function() {
+				// this.textArea.addEventListener('onkeyup', TextCounter.counterTotal, false);
+				var self = this;
+				this.textArea.onkeyup = function (e) {
+					// console.log(e);
+					e.preventDefault();
+					self.counterTotal();
+					// console.log(TextCounter.counterTotal());
+					console.log(self.counterTotal())
+				}
+			}
+			
+		};
+
+		TextCounter.init();
+
+
+	</script>
+
+	<script>
+		// 1. додати прослушку для keyup
+		// 2. заборона вводу тексту більше 140 символів
+		// 3. розрфшити ввод: all arrows, backspace, insert, delete, home, end
+	</script>
+
+</body>
+</html>
