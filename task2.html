@@ -65,7 +65,7 @@
 
 
  <div class="gallery">
-   <img src="https://wrong.url" alt="Image 7"/>
+   <!-- <img src="https://wrong.url" alt="Image 7"/> -->
    <img src="https://farm2.staticflickr.com/1580/25180703901_8d151b1260_b.jpg" alt="Image 1"/>
    <img src="https://farm2.staticflickr.com/1569/25155568712_d2b27e77ef_b.jpg" alt="Image 2"/>
    <img src="https://farm2.staticflickr.com/1627/25247562596_a50669cfcf_b.jpg" alt="Image 3"/>
@@ -108,22 +108,30 @@
 			
 			events: function() {
 				/*your events should be described within this method*/
-				this.loadImage()
+				this.loadImage(this.loadedCallback);
 			},
 			
-			loadImage: function() {
+			loadImage: function(callback) {
 				/*call this function on image load or error event*/
+
+				var self = this;
+
 				// var img = this.images;
 
 				// var a = this.images.onload = this.images.onerror;
+				// console.log('length: ' + this.images.length);
 
-				// for(var i = 0; i < this.images.length; i++)
+				var counter = 0;
 
-				this.images[1].onload = this.images[1].onerror = function () {
-					var counter = 0;
-					counter++;
-					console.log(true);
+				for(var i = 0; i < this.images.length; i++) {
+
+					this.images[i].onload = this.images[i].onerror = function () {
+						counter++;
+						console.log(counter);
+						if (counter == self.images.length) callback();
+					}
 				}
+
 
 			},
 			
@@ -133,6 +141,7 @@
 			
 			loadedCallback: function() {
 				/*call this function once images will be loaded. Put code inside this method which will hide progress bar.*/
+				console.log('is loadedCallback');
 			}
 		};
 	})();

@@ -13,14 +13,14 @@
 	</ul>
 
 	<div class="wrapper">
-		<textarea class="input" name="message" id="js-message" cols="30" rows="10" spellcheck="false">1234</textarea>
+		<textarea class="input" name="message" id="js-message" cols="30" rows="10" spellcheck="false"></textarea>
 		<p>Symbols total: <b id="js-message-left-total">0</b>, left: <b id="js-message-left-symbols">0</b></p>
 	</div>
 
 	<script>
 		
 		var TextCounter = {
-			maxChar: 20,
+			maxChar: 140,
 			textArea: null,
 			textAreaTotal: null,
 			textAreaLeft: null,
@@ -34,8 +34,9 @@
 			
 			events: function() {
 				this.counterTotal();
-				// this.listener();
-				this.textArea.addEventListener('keypress', this.listener);
+				this.listener();
+				// this.textArea.addEventListener('keypress', this.listener);
+				// this.textArea.addEventListener('keyup', this.listener);
 			},
 
 			counterTotal: function() {
@@ -47,44 +48,37 @@
 				return countCharLeft;
 			},
 
-			listener: function(event) {
+			listener: function() {
 				var self = this;
-				var count = TextCounter.counterTotal();
-				var k = event.keyCode;
+				
+				this.textArea.onkeyup = function (event) {
+					var count = self.counterTotal();
+					var k = event.keyCode;
 
+					var a = self.textArea.value;
+					console.log();
 
-				if (count <= 0) {
-					if (
-						k == 8 || 
-						k == 35 || 
-						k == 36 || 
-						k == 46 || 
-						k == 45 || 
-						k == 37 || 
-						k == 38 || 
-						k == 39 || 
-						k == 40
-						) return;
-					event.preventDefault();
+					if (count <= 0) {
+						if (
+							k == 8 || 
+							k == 35 || 
+							k == 36 || 
+							k == 46 || 
+							k == 45 || 
+							k == 37 || 
+							k == 38 || 
+							k == 39 || 
+							k == 40
+							) return;
+							self.textArea.value = self.textArea.value.substring(0, self.maxChar-1);
+					}
 				}
-				// this.textArea.onkeyup = function (e) {
-				// 	console.log(TextCounter.counterTotal());
-				// 	--
-				// 	console.log(self.counterTotal())
-				// }
 			}
 			
 		};
 
 		TextCounter.init();
 
-
-	</script>
-
-	<script>
-		// 1. додати прослушку для keyup
-		// 2. заборона вводу тексту більше 140 символів
-		// 3. розрішити ввод: all arrows, backspace, insert, delete, home, end
 	</script>
 
 </body>
