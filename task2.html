@@ -7,12 +7,6 @@
 	<script src="js/main.js"></script>
 </head>
 <body>
-	<ul>
-		<li><a href="/" class="back">to home</a></li>
-		<li class="list-item"><a href="https://confluence.ontrq.com/pages/viewpage.action?spaceKey=KB&title=Easy+level+-+native+JS" target="_blank">Easy level - native JS</a></li>
-	</ul>
-
-
 	<style>
 	.gallery img {
 		height: 150px;
@@ -129,8 +123,9 @@
 			},
 			
 			increaseProgressBar: function(numb, count) {
-				this.preogressBar.style.width = count/numb*100 + '%';
-				this.loaderPercent.innerHTML = (count/numb*100).toFixed(0) + '%';
+				var percent = count/numb*100
+				this.preogressBar.style.width = percent + '%';
+				this.loaderPercent.innerHTML = percent.toFixed(0) + '%';
 			},
 			
 			loadedCallback: function() {
