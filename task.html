@@ -13,14 +13,14 @@
 	</ul>
 
 	<div class="wrapper">
-		<textarea class="input" name="message" id="js-message" cols="30" rows="10" spellcheck="false">ss</textarea>
+		<textarea class="input" name="message" id="js-message" cols="30" rows="10" spellcheck="false"></textarea>
 		<p>Symbols total: <b id="js-message-left-total">0</b>, left: <b id="js-message-left-symbols">0</b></p>
 	</div>
 
 	<script>
 		
 		var TextCounter = {
-			maxChar: 10,
+			maxChar: 140,
 			textArea: null,
 			textAreaTotal: null,
 			textAreaLeft: null,
@@ -33,16 +33,12 @@
 			},
 			
 			events: function() {
-				// this.counterTotal();
-				this.listener();
-
 				this.putCounter();
-
-				// this.textArea.addEventListener('keypress', this.listener);
-				this.textArea.addEventListener('keyup', this.putCounter);
+				this.textArea.addEventListener('keyup', this.putCounter.bind(this));
+				this.textArea.addEventListener('keydown', this.validateCount.bind(this));
 			},
 
-			counterTotal: function() {
+			listener: function() {
 				var countChar = this.textArea.value.length;
 				var countCharLeft = this.maxChar - countChar;
 				return {
@@ -52,32 +48,24 @@
 			},
 
 			putCounter: function () {
-				var a = this.counterTotal();
+				var total = this.listener();
 
-				console.log(a);
-
-				var aa = this.textAreaTotal.innerHTML = a.countChar;
-				this.textAreaLeft.innerHTML = a.countCharLeft;
-				console.log(aa);
+				this.textAreaTotal.innerHTML = total.countChar;
+				this.textAreaLeft.innerHTML = total.countCharLeft;
 			},
 
-			listener: function() {
-				var self = this;
-				
-				// this.textArea.onkeyup = function (event) {
-					// var count = self.counterTotal();
-					// self.putCounter();
-					// var k = event.keyCode;
+			validateCount: function(event) {
+					var k = event.keyCode;
 
-					// var a = self.textArea.value;
-					// console.log(k);
+					var total = this.listener();
+					
+					console.log(total.countCharLeft);
 
-					// if (count <= 0) {
-					// 	// if (k == 8 || k == 35 || k == 36 || k == 37 || k == 38 || k == 39 || k == 40 || k == 45 || k == 46) return;
-					// 	if (k == 8 || (k >= 35 && k <= 40) || k == 45 || k == 46) return;
-					// 		self.textArea.value = self.textArea.value.substring(0, self.maxChar - 1);
-					// }
-				// }
+					if (total.countCharLeft <= 0) {
+						if (k == 8 || (k >= 35 && k <= 40) || k == 45 || k == 46) return;
+							// this.textArea.value = this.textArea.value.substring(0, this.maxChar - 1);
+							event.preventDefault();
+					}
 			}
 			
 		};
