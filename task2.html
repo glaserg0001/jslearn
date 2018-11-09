@@ -99,6 +99,7 @@
 				this.preogressBar = document.getElementById('loaderProgressBar');
 				this.loaderPercent = document.getElementById('loaderPercent');
 				this.images = document.getElementsByTagName('img');
+				this.loaderHide = " loader-hide";
 				
 				this.events();
 			},
@@ -109,12 +110,12 @@
 			
 			loadImage: function(callback) {
 				var self = this;
-				var numb = this.images.length;
+				var numb = self.images.length;
 				var counter = 0;
 
 				for(var i = 0; i < numb; i++) {
 
-					this.images[i].onload = this.images[i].onerror = function () {
+					self.images[i].onload = self.images[i].onerror = function () {
 						counter++;
 						if (counter == self.images.length) callback();
 						self.increaseProgressBar(numb, counter);
@@ -129,7 +130,7 @@
 			},
 			
 			loadedCallback: function() {
-				this.loader.className += " loader-hide";
+				this.loader.className += this.loaderHide;
 			}
 		};
 	})();

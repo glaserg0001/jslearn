@@ -56,11 +56,8 @@
 
 			validateCount: function(event) {
 					var k = event.keyCode;
-
 					var total = this.listener();
 					
-					console.log(total.countCharLeft);
-
 					if (total.countCharLeft <= 0) {
 						if (k == 8 || (k >= 35 && k <= 40) || k == 45 || k == 46) return;
 							// this.textArea.value = this.textArea.value.substring(0, this.maxChar - 1);
