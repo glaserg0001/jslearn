@@ -9,6 +9,7 @@
 <body>
 	<ul>
 		<li><a href="/" class="back">to home</a></li>
+		<li class="list-item"><a href="https://learn.javascript.ru/data-structures" target="blank">Структуры данных</a></li>
 	</ul>
 	
 	<script>
@@ -170,9 +171,41 @@
 
 		/*==== МАССИВЫ С ЧИСЛОВЫМИ ИНДЕКСАМИ START ====*/
 
-		
-		
+		// var arr = [];
+
+		/*Методы pop/push, shift/unshift*/
+		// pop - Удаляет последний элемент из массива и возвращает его
+		// push - Добавляет элемент в конец массива
+		// shift - Удаляет из массива первый элемент и возвращает его
+		// unshift - Добавляет элемент в начало массива
+
+		(function () {
+
+			var a = ['aa','bb','cc', 'dd'];
+			var b = a;
+			b[8] = 'b add';
+			a['kk'] = "ff";
+			a[9] = "dd";
+			console.log(a);
+			console.log(b);
+			console.log(a.length);
+
+			for (var i = 0; i < a.length; i++) {
+				if (a[i] == 'dd') {
+					a[i] = 'changed';
+				}
+			}
+
+			console.log(String(a));
+			console.log('b: ' + b);
+			console.log(a.length = 2);
+			console.log(a.join(' '));
+
+		})();
+
+
 		/*==== МАССИВЫ С ЧИСЛОВЫМИ ИНДЕКСАМИ END ====*/
+
 
 	</script>
 
