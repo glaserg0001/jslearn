@@ -182,27 +182,132 @@
 
 		(function () {
 
-			var a = ['aa','bb','cc', 'dd'];
-			var b = a;
-			b[8] = 'b add';
-			a['kk'] = "ff";
-			a[9] = "dd";
-			console.log(a);
-			console.log(b);
-			console.log(a.length);
-
-			for (var i = 0; i < a.length; i++) {
-				if (a[i] == 'dd') {
-					a[i] = 'changed';
-				}
+			/*Получить последний элемент массива*/
+			if(0) {
+				var goods = ['a', 'b', 'c'];
+				var last = goods[goods.length-1];
+				console.log(last);
 			}
 
-			console.log(String(a));
-			console.log('b: ' + b);
-			console.log(a.length = 2);
-			console.log(a.join(' '));
+			/*Добавить новый элемент в массив*/
+			if(0) {
+				var goods = ['a', 'b', 'c'];
+				goods[goods.length] = 'Компьютер';
+				console.log(goods);
+			}
+			/*Создание массива*/
+			if(0) {
+				var styles = ['Джаз', 'Блюз']; // 1
+				styles.push('Рок-н-Ролл'); // 2
+				styles[styles.length - 2] = 'Классика'; // 3
+				console.log(styles.shift()); // 4
+				styles.unshift('Рэп', 'Регги'); // 5
+			}
+
+			/*Получить случайное значение из массива*/
+			if(0) {
+				var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"];
+				var min = 0;
+				var max = arr.length - 1;
+				var rand = min + Math.floor(Math.random() * (max + 1 - min));
+				// var rand = Math.floor(Math.random() * arr.length) // з learnjs
+				console.log(arr[rand]);
+			}
+
+			/*Создайте калькулятор для введённых значений*/
+			if(0) {
+				var sum = [];
+				var num;
+
+				while(true) {
+					num = prompt('number', 0);
+					if (isNaN(num) || num == null) break;
+					sum.push(parseFloat(num));
+				}
+
+				var calc = 0;
+				for (var i=0; i<sum.length; i++) {
+					calc += sum[i];
+				}
+				console.log(calc);
+			}
+
+			/*Поиск в массиве*/
+			if(0) {
+				ar = ['test', 2, 1.5, false];
+				function find(arr, value) {
+					for (var i = 0; i < arr.length; i++) {
+						if (arr[i] === value) {
+							return i;
+						}
+					}
+					return -1;
+				}
+
+				console.log(find(ar, "test"));
+				console.log(find(ar, 2));
+				console.log(find(ar, 1.5));
+				console.log(find(ar, 0));
+			}
+
+			/*Фильтр диапазона*/
+			if(0) {
+
+				function filterRange(array, a , b) {
+
+					var newArray = [];
+
+					for (var i = 0; i < array.length; i++) {
+						if (  array[i] >= a &&  array[i] <= b ) {
+							newArray.push(array[i]);
+						}
+					}
+					return newArray;
+				};
+
+				var arr = [5, 4, 3, 8, 0];
+				var filtered = filterRange(arr, 3, 5);
+				console.log(filtered);
+
+			}
+
+			/*Решето Эратосфена*/
+			if(1) {
+				function er (n) {
+					var p = 2;
+
+					f = [];
+
+					// if (p*p < n) {}
+
+					check(p)
+
+					function check (p) {
+						var a = p;
+
+						for(p; p<=n;) {
+							console.log(p);
+							
+							for (var i=0; i<f.length; i++) {
+							console.log(f[i]);
+								if (f[i] != p) f.push(p);
+							}
+
+							p=a+p;
+						}
+
+						console.log(f);
+
+					}
+
+				}
+
+				console.log(er(100));
+			}
+
 
 		})();
+
 
 
 		/*==== МАССИВЫ С ЧИСЛОВЫМИ ИНДЕКСАМИ END ====*/
