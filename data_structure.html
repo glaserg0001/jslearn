@@ -276,33 +276,42 @@
 				function er (n) {
 					var p = 2;
 
-					f = [];
+					var f = [];
+					var sieve = [];
 
-					// if (p*p < n) {}
+					// f.push(p);
 
-					check(p)
 
 					function check (p) {
+						var p = p;
 						var a = p;
 
 						for(p; p<=n;) {
 							console.log(p);
-							
-							for (var i=0; i<f.length; i++) {
-							console.log(f[i]);
-								if (f[i] != p) f.push(p);
-							}
-
 							p=a+p;
-						}
 
-						console.log(f);
+							if (!f.includes(p)) f.push(p);
+
+							return f;
+						}
 
 					}
 
-				}
+					for (p; p<=n;p++) {
+						check(p);
+						console.log(f);
+						if (!f.includes(p)) sieve.push(p);
+					}
 
-				console.log(er(100));
+					// console.log(f);
+					console.log('sieve: [' + sieve+ ']');
+
+					return '----';
+
+				} // er
+
+				// console.log(er(10));
+				er(10);
 			}
 
 
