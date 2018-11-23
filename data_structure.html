@@ -273,47 +273,46 @@
 
 			/*Решето Эратосфена*/
 			if(1) {
-				function er (n) {
-					var p = 2;
+				
+				/*шаг 1*/
+				var arr = [];
 
-					var f = [];
-					var sieve = [];
+				for (var i = 2; i < 100; i++) {
+					arr[i] = true
+				}
 
-					// f.push(p);
+				console.log(arr);
 
+				/*шаг 2*/
+				var p = 2;
 
-					function check (p) {
-						var p = p;
-						var a = p;
-
-						for(p; p<=n;) {
-							console.log(p);
-							p=a+p;
-
-							if (!f.includes(p)) f.push(p);
-
-							return f;
-						}
-
+				do {
+					/*шаг 3*/
+					for (i = 2 * p; i < 100; i += p) {
+						arr[i] = false;
 					}
 
-					for (p; p<=n;p++) {
-						check(p);
-						console.log(f);
-						if (!f.includes(p)) sieve.push(p);
+					/*шаг 4*/
+					for (i = p + 1; i < 100; i++) {
+						if (arr[i]) break;
 					}
 
-					// console.log(f);
-					console.log('sieve: [' + sieve+ ']');
+					p = i;
+				}
+				while (p * p < 100); /*шаг 5*/
 
-					return '----';
+				/*шаг 6 (готово)*/
+				/*посчитать сумму*/
+				var sum = 0;
+				for (i = 0; i < arr.length; i++) {
+					if (arr[i]) {
+						sum += i;
+					}
+				}
 
-				} // er
+				// console.log( sum );
 
-				// console.log(er(10));
-				er(10);
 			}
-
 
 		})();
 
