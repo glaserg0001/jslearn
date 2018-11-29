@@ -272,37 +272,35 @@
 			}
 
 			/*Решето Эратосфена*/
-			if(1) {
+			if(0) {
 				
-				/*шаг 1*/
+				/*1*/
 				var arr = [];
 
 				for (var i = 2; i < 100; i++) {
 					arr[i] = true
 				}
 
-				console.log(arr);
 
-				/*шаг 2*/
+				/*2*/
 				var p = 2;
 
 				do {
-					/*шаг 3*/
+					/*3*/
 					for (i = 2 * p; i < 100; i += p) {
 						arr[i] = false;
 					}
 
-					/*шаг 4*/
+					/*4*/
 					for (i = p + 1; i < 100; i++) {
 						if (arr[i]) break;
 					}
 
 					p = i;
 				}
-				while (p * p < 100); /*шаг 5*/
+				while (p * p < 100); /*5*/
 
-				/*шаг 6 (готово)*/
-				/*посчитать сумму*/
+				/*6*/
 				var sum = 0;
 				for (i = 0; i < arr.length; i++) {
 					if (arr[i]) {
@@ -310,15 +308,39 @@
 					}
 				}
 
-				// console.log( sum );
+				console.log( sum );
 
+			}
+
+			/*Подмассив наибольшей суммы*/
+			if(1) {
+				function getMaxSubSum(arr) {
+					var maxSum = 0;
+
+					for (var i = 0; i < arr.length; i++) {
+						var sumFixedStart = 0;
+						for (var j = i; j < arr.length; j++) {
+							sumFixedStart += arr[j];
+							maxSum = Math.max(maxSum, sumFixedStart);
+						}
+					}
+
+					return maxSum;
+				}
+
+				console.log( getMaxSubSum([-1, 2, 3, -9]) );
+				console.log( getMaxSubSum([-1, 2, 3, -9, 11]) );
+				console.log( getMaxSubSum([-2, -1, 2, 2]) );
+				console.log( getMaxSubSum([1, 2, 3]) );
+				console.log( getMaxSubSum([100, -9, 2, -3, 5]) );
+				console.log( getMaxSubSum([-1, -2, -3]) );
 			}
 
 		})();
 
-
-
 		/*==== МАССИВЫ С ЧИСЛОВЫМИ ИНДЕКСАМИ END ====*/
+		/*==== МАССИВЫ: МЕТОДЫ START ====*/
+		/*==== МАССИВЫ: МЕТОДЫ END ====*/
 
 
 	</script>
