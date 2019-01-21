@@ -313,7 +313,7 @@
 			}
 
 			/*Подмассив наибольшей суммы*/
-			if(1) {
+			if(0) {
 				function getMaxSubSum(arr) {
 					var maxSum = 0;
 
@@ -339,11 +339,82 @@
 		})();
 
 		/*==== МАССИВЫ С ЧИСЛОВЫМИ ИНДЕКСАМИ END ====*/
+
 		/*==== МАССИВЫ: МЕТОДЫ START ====*/
-		/*==== МАССИВЫ: МЕТОДЫ END ====*/
+		// split() - позволяет превратить строку в массив
+		// join() - берет массив и склеивает его в строку, используя str как разделитель
+		// delete - удаление из массива
+		// splice() - умеет удалять элементы, вставлять элементы, заменять элементы – по очереди и одновременно
+		// slice(begin, end) копирует участок массива от begin до end, не включая end. Исходный массив при этом не меняется
+		// sort() - сортирует массив на месте
+		// arr.reverse() - меняет порядок элементов в массиве на обратный
+		// arr.concat(value1, value2, … valueN) создаёт новый массив, в который копируются элементы из arr, а также value1, value2, ... valueN
+		// indexOf/lastIndexOf - возвращает номер элемента снача/с конца
+		// Object.keys(obj) возвращает массив свойств объекта
 
 
-	</script>
+		(function () {
+
+			/*Добавить класс в строку*/
+			if(0) {
+
+				var obj = {
+					className: 'open menu'
+				}
+
+				function addClass(obj, cls) {
+
+					var arr = obj.className.split(" ");
+
+					for (let i = 0; i < arr.length; i++) {
+						if (arr[i] === cls) return console.log('not unique')
+					}
+
+				arr.splice(arr.length, 0, cls);
+				obj.className = arr.join(' ');
+			}
+
+			addClass(obj, 'new');
+			addClass(obj, 'open');
+			addClass(obj, 'open1');
+			addClass(obj, 'new');
+			console.log(obj);
+		}
+
+		/*Перевести текст вида border-left-width в borderLeftWidth*/
+		if(1) {
+
+			function camelize(str) {
+
+				let arr = str.split('-');
+
+				var newArr = [];
+
+				for (let i = 0; i < arr.length; i++) {
+					var getFL = arr[i].charAt(0).toUpperCase();
+					var cutStr = arr[i].split('');
+					cutStr[0] = getFL;
+					var a = cutStr.join('');
+					newArr = newArr.concat(a);
+
+				}
+				newArr = newArr.join('');
+				
+				console.log(newArr);
+			};
+
+			camelize('border-left-width');
+			camelize("-webkit-transition");
+
+		}
+
+
+	})();
+
+	/*==== МАССИВЫ: МЕТОДЫ END ====*/
+
+
+</script>
 
 </body>
 </html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<ul>
+		<li><a href="/" class="back">to home</a></li>
+		<li class="list-item"><a href="https://learn.javascript.ru/es-modern" target="blank">Современные возможности ES-2015</a></li>
+	</ul>
+	
+	<script>
+		// Object.freeze - заморозить объект
+		// let & consts
+		// () => - function () {}
+		// function howMany(...args) {} - неявное колличество аргументов
+		// arr2 = [...arr1] - spread ... розширяет массив
+		// [...arr1] - с html-коллекции сделать массив
+
+		/*
+			Переназначить свойства с помощью деконструкции (Destructuring)
+			var basicOjb = {x: 40};
+			const { x: bigX } = basicOjb;
+			consle.log(bigX) // ans = 40
+			----
+			const a = {
+				start: { x: 5, y: 6},
+				end: { x: 6, y: -9 }
+			};
+			const { start : { x: startX, y: startY }} = a;
+			console.log(startX, startY); // 5, 6
+			*/
+
+		/*
+		const [a, b] = [1, 2, 3, 4, 5, 6];
+		console.log(a, b); // 1, 2
+		*/
+
+		/*
+			const [a, b, ... arr] = [1, 2, 3, 4, 5, 7]; 
+			console.log (a, b); // 1, 2 
+			console.log (arr); // [3, 4, 5, 7]
+			*/
+
+			/*--------------------*/
+
+			const profileUpdate = (profileData) => {
+				const { name, age, nationality, location } = profileData;
+				// do something with these variables
+			}
+
+			/*--------------------*/
+
+			/*Сжатый объект START*/
+			const getMousePosition = (x, y) => ({ 
+				x: x, 
+				y: y 
+			});
+		// to
+		const getMousePosition2 = (x, y) => ({ x, y });
+		/*Сжатый объект END*/
+
+		/*--------------------*/
+
+		/*Сжатая функция START*/
+		const person = {
+			name: "Taylor",
+			sayHello: function() {
+				return `Hello! My name is ${this.name}.`;
+			}
+		};
+		// to
+		const person1 = {
+			name: "Taylor",
+			sayHello() {
+				return `Hello! My name is ${this.name}.`;
+			}
+		};
+		/*Сжатая функция END*/
+
+		/*--------------------*/
+
+		/*class constructor START*/
+		var SpaceShuttle = function(targetPlanet){
+			this.targetPlanet = targetPlanet;
+		}
+		var zeus = new SpaceShuttle('Jupiter');
+		// to
+		class SpaceShuttle1 {
+			constructor(targetPlanet){
+				this.targetPlanet = targetPlanet;
+			}
+		}
+		const zeus1 = new SpaceShuttle('Jupiter');
+		/*class constructor END*/
+
+		/*--------------------*/
+
+		/*new getter/setter START*/
+		class Book {
+		  constructor(author) {
+		    this._author = author;
+		  }
+		  // getter
+		  get writer(){
+		    return this._author;
+		  }
+		  // setter
+		  set writer(updatedAuthor){
+		    this._author = updatedAuthor;
+		  }
+		}
+		const lol = new Book('anonymous');
+		console.log(lol.writer);  // anonymous
+		lol.writer = 'wut';
+		console.log(lol.writer);  // wut
+		/*new getter/setter END*/
+
+		/*--------------------*/
+
+		// import { countItems } from "math_array_functions" - імпорт окремих частин кода (не для браузера)
+		// import add from "math_functions"; - імпорт дефолтної функції з дефолтним експортом 
+
+		/*--------------------*/
+
+		/*new export START*/
+		/*
+			const capitalizeString = (string) => {
+			  return string.charAt(0).toUpperCase() + string.slice(1);
+			}
+			export { capitalizeString } //How to export functions.
+			export const foo = "bar"; //How to export variables.
+		*/
+		/*new export END*/
+
+		/*--------------------*/
+
+		/*new Use * to Import Everything from a File START*/
+		/*
+			import * as myMathModule from "math_functions";
+			myMathModule.add(2,3);
+		*/
+		/*new Use * to Import Everything from a File END*/
+
+		/*--------------------*/
+
+		/*new START*/
+		// export default function add(x,y) {
+		// 	return x + y;
+		// }
+		/*new END*/
+
+		/*--------------------*/
+
+		/*new START*/
+		/*new END*/
+
+	</script>
+
+</body>
+</html>
