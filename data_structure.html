@@ -355,266 +355,288 @@
 
 		(function () {
 
-		/*Добавить класс в строку*/
-		if(0) {
+			/*Добавить класс в строку*/
+			if(0) {
 
-			var obj = {
-				className: 'open menu'
-			}
-
-			function addClass(obj, cls) {
-
-				var arr = obj.className.split(" ");
-
-				for (let i = 0; i < arr.length; i++) {
-					if (arr[i] === cls) return console.log('not unique')
+				var obj = {
+					className: 'open menu'
 				}
 
-				arr.splice(arr.length, 0, cls);
-				obj.className = arr.join(' ');
-			}
+				function addClass(obj, cls) {
 
-			addClass(obj, 'new');
-			addClass(obj, 'open');
-			addClass(obj, 'open1');
-			addClass(obj, 'new');
-			console.log(obj);
-		}
+					var arr = obj.className.split(" ");
 
-		/*Перевести текст вида border-left-width в borderLeftWidth*/
-		if(0) {
-
-			function camelize(str) {
-
-				let arr = str.split('-');
-
-				var newArr = [arr[0]];
-
-				for (let i = 1; i < arr.length; i++) {
-					var getFL = arr[i].charAt(0).toUpperCase();
-					var cutStr = arr[i].split('');
-					cutStr[0] = getFL;
-					var a = cutStr.join('');
-					newArr = newArr.concat(a);
-
-				}
-				newArr = newArr.join('');
-
-				console.log(newArr);
-			};
-
-			camelize('border-left-width');
-			camelize("-webkit-transition");
-		}
-
-		/*Функция removeClass*/
-		if(0) {
-			var obj = {
-				className: 'open menu open'
-			};
-			function removeClass(obj, cls) {
-				var arr = obj.className.split(' ');
-				for (let i = 0; i < arr.length; i++) {
-					if (arr[i] === cls) {
-						arr.splice(i, 1);
-						i--;
+					for (let i = 0; i < arr.length; i++) {
+						if (arr[i] === cls) {
+							return console.log('not unique')
+						}
 					}
-				}
-				obj.className = arr.join(' ');
-			}
-			removeClass(obj, 'open');
-			removeClass(obj, 'blabla');
-			console.log(obj);
-		}
 
-		/*Фильтрация массива "на месте"*/
-		if(0) {
-			var _arr = [5, 3, 8, 1];
-			function filterRangeInPlace(arr, a, b) {
-				if (a > b) {
-					var c,
-					c = a,
-					a = b,
-					b = c;
+					arr.splice(arr.length, 0, cls);
+					obj.className = arr.join(' ');
 				}
-				for (var i = arr.length - 1; i >= 0; i--) {
-					if (arr[i] < a  || arr[i] > b) {
-						arr.splice(i, 1);
+
+				addClass(obj, 'new');
+				addClass(obj, 'open');
+				addClass(obj, 'open1');
+				addClass(obj, 'new');
+				console.log(obj);
+			}
+
+			/*Перевести текст вида border-left-width в borderLeftWidth*/
+			if(0) {
+
+				function camelize(str) {
+
+					let arr = str.split('-');
+
+					var newArr = [arr[0]];
+
+					for (let i = 1; i < arr.length; i++) {
+						var getFL = arr[i].charAt(0).toUpperCase();
+						var cutStr = arr[i].split('');
+						cutStr[0] = getFL;
+						var a = cutStr.join('');
+						newArr = newArr.concat(a);
+
 					}
+					newArr = newArr.join('');
+
+					console.log(newArr);
+				};
+
+				camelize('border-left-width');
+				camelize("-webkit-transition");
+			}
+
+			/*Функция removeClass*/
+			if(0) {
+				var obj = {
+					className: 'open menu open'
+				};
+				function removeClass(obj, cls) {
+					var arr = obj.className.split(' ');
+					for (let i = 0; i < arr.length; i++) {
+						if (arr[i] === cls) {
+							arr.splice(i, 1);
+							i--;
+						}
+					}
+					obj.className = arr.join(' ');
 				}
+				removeClass(obj, 'open');
+				removeClass(obj, 'blabla');
+				console.log(obj);
 			}
 
-			filterRangeInPlace(_arr, 1, 4);
-			console.log(_arr);
-		}
-
-		/*Сортировать в обратном порядке*/
-		if(0) {
-			var $arr = [5, 2, 1, -10, 8, 3, 4];
-			function compareReversed(a, b) {
-				return b - a;
-			}
-			$arr.sort(compareReversed);
-			console.log($arr);
-		}
-
-		/*Скопировать и отсортировать массив*/
-		if(0) {
-
-			var ar1 = ["HTML", "JavaScript", "CSS"];
-
-			var arrSorted = ar1.slice(0).sort();
-
-			console.log(arrSorted);
-			console.log(ar1);
-		}
-
-
-		/*Случайный порядок в массиве*/
-		if(0) {
-			var ar2 = [1, 2, 3, 4, 5];
-			function rand(a, b) {
-				return Math.random() - .5
-			}
-			ar2.sort(rand);
-			console.log(ar2);
-		}
-
-		/*Сортировка объектов*/
-		if(0) {
-
-			var vasya = { name: "Вася", age: 23 };
-			var masha = { name: "Маша", age: 18 };
-			var vovochka = { name: "Вовочка", age: 6 };
-
-			var people = [ vasya , masha , vovochka ];
-
-			function compareAge(personA, personB) {
-				return personA.age - personB.age;
-			}
-
-			people.sort(compareAge);
-
-			console.log(people)	
-		}
-
-		/*Вывести односвязный список*/
-		if(0) {
-
-			var list = {
-				value: 1,
-				next: {
-					value: 2,
-					next: {
-						value: 3,
-						next: {
-							value: 4,
-							next: null
+			/*Фильтрация массива "на месте"*/
+			if(0) {
+				var _arr = [5, 3, 8, 1];
+				function filterRangeInPlace(arr, a, b) {
+					if (a > b) {
+						var c,
+						c = a,
+						a = b,
+						b = c;
+					}
+					for (var i = arr.length - 1; i >= 0; i--) {
+						if (arr[i] < a  || arr[i] > b) {
+							arr.splice(i, 1);
 						}
 					}
 				}
-			};
 
-			/*1*/
-			if(false) {
-				function printList(list) {
-					var nextList = list;
+				filterRangeInPlace(_arr, 1, 4);
+				console.log(_arr);
+			}
 
-					while(nextList) {
-						console.log(nextList.value);
-						nextList = nextList.next;
+			/*Сортировать в обратном порядке*/
+			if(0) {
+				var $arr = [5, 2, 1, -10, 8, 3, 4];
+				function compareReversed(a, b) {
+					return b - a;
+				}
+				$arr.sort(compareReversed);
+				console.log($arr);
+			}
+
+			/*Скопировать и отсортировать массив*/
+			if(0) {
+
+				var ar1 = ["HTML", "JavaScript", "CSS"];
+
+				var arrSorted = ar1.slice(0).sort();
+
+				console.log(arrSorted);
+				console.log(ar1);
+			}
+
+
+			/*Случайный порядок в массиве*/
+			if(0) {
+				var ar2 = [1, 2, 3, 4, 5];
+				function rand(a, b) {
+					return Math.random() - .5
+				}
+				ar2.sort(rand);
+				console.log(ar2);
+			}
+
+			/*Сортировка объектов*/
+			if(0) {
+
+				var vasya = { name: "Вася", age: 23 };
+				var masha = { name: "Маша", age: 18 };
+				var vovochka = { name: "Вовочка", age: 6 };
+
+				var people = [ vasya , masha , vovochka ];
+
+				function compareAge(personA, personB) {
+					return personA.age - personB.age;
+				}
+
+				people.sort(compareAge);
+
+				console.log(people)	
+			}
+
+			/*Вывести односвязный список*/
+			if(0) {
+
+				var list = {
+					value: 1,
+					next: {
+						value: 2,
+						next: {
+							value: 3,
+							next: {
+								value: 4,
+								next: null
+							}
+						}
+					}
+				};
+
+				/*1*/
+				if(false) {
+					function printList(list) {
+						var nextList = list;
+
+						while(nextList) {
+							console.log(nextList.value);
+							nextList = nextList.next;
+						}
+
 					}
 
+					printList(list);
 				}
 
-				printList(list);
-			}
 
+				/*2*/
+				if(false) {
 
-			/*2*/
-			if(false) {
-
-				function printListR(list) {
-					console.log(list.value)
-					if(list.next) {
-						return printListR(list.next);
-					}
-				}
-
-				printListR(list);
-
-			}
-
-			/*3*/
-			if(false) {
-
-				function printReverseListR(list) {
-					if(list.next) {
-						printReverseListR(list.next);
-					}
-					console.log(list.value);
-				}
-
-				printReverseListR(list);
-
-			}
-
-			/*4*/
-			if(false) {
-				function printReverseList(list) {
-					var nextList = list;
-					var arrList = []
-
-					while(nextList) {
-
-						arrList.push(nextList.value);
-						nextList = nextList.next;
+					function printListR(list) {
+						console.log(list.value)
+						if(list.next) {
+							return printListR(list.next);
+						}
 					}
 
-					for(let i = arrList.length - 1;i >= 0; i--)
-						console.log(arrList[i]);
+					printListR(list);
+
 				}
 
-				printReverseList(list);
+				/*3*/
+				if(false) {
+
+					function printReverseListR(list) {
+						if(list.next) {
+							printReverseListR(list.next);
+						}
+						console.log(list.value);
+					}
+
+					printReverseListR(list);
+
+				}
+
+				/*4*/
+				if(false) {
+					function printReverseList(list) {
+						var nextList = list;
+						var arrList = []
+
+						while(nextList) {
+
+							arrList.push(nextList.value);
+							nextList = nextList.next;
+						}
+
+						for(let i = arrList.length - 1;i >= 0; i--)
+							console.log(arrList[i]);
+					}
+
+					printReverseList(list);
+
+				}
+			}
+
+			/*Отфильтровать анаграммы*/
+			if(0) {
+
+				var ann = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
+				function aclean(arr) {
+
+					var obj = {};
+
+					for(let i = 0; i < arr.length; i++) {
+						var sorted = arr[i].toLowerCase().split('').sort().join('');
+						obj[sorted] = arr[i];
+					}
+
+					var result = [];
+
+					for (var key in obj) {
+						result.push(obj[key]);
+					}
+					return result;
+
+				}
+
+				console.log(aclean(ann));
 
 			}
-		}
 
-		/*Отфильтровать анаграммы*/
-		if(0) {
+			if(1) {
 
-			var ann = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
-			function aclean(arr) {
+				function unique(arr) {
 
-				var obj = {};
+					var obj = {}
 
-				for(let i = 0; i < arr.length; i++) {
-					var sorted = arr[i].toLowerCase().split('').sort().join('');
+					for(let i = 0; i < arr.length; i++) {
 
-					obj[sorted] = arr[i];
+						obj[arr[i]] = true
+
+					}
+
+					return Object.keys(obj);
 
 				}
 
-				var result = [];
+				var strings = ["кришна", "кришна", "харе", "харе", "харе", "харе", "кришна", "кришна", "8-()"];
 
-				for (var key in obj) {
-					result.push(obj[key]);
-				}
+				console.log(unique(strings))
 
-				return result;
 
 			}
 
-			console.log(aclean(ann));
+		})();
 
-		}
-
-	})();
-
-	/*==== МАССИВЫ: МЕТОДЫ END ====*/
+		/*==== МАССИВЫ: МЕТОДЫ END ====*/
 
 
-</script>
+	</script>
 
 </body>
 </html>
