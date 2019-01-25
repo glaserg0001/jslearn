@@ -608,7 +608,7 @@
 
 			}
 
-			if(1) {
+			if(0) {
 
 				function unique(arr) {
 
@@ -635,6 +635,82 @@
 
 		/*==== МАССИВЫ: МЕТОДЫ END ====*/
 
+		/*==== МАССИВЫ: ПЕРЕБИРАЮЩИЕ МЕТОДЫ START ====*/
+		// forEach - «arr.forEach(callback[, thisArg])» используется для перебора массива
+		// filter - «arr.filter(callback[, thisArg])» используется для фильтрации массива через функцию
+		// map - «arr.map(callback[, thisArg])» используется для трансформации массива
+		// every - «arr.every(callback[, thisArg])» возвращает true, если вызов callback вернёт true для каждого элемента arr
+		// some - «arr.some(callback[, thisArg])» возвращает true, если вызов callback вернёт true для какого-нибудь элемента arr
+		// reduce - «arr.reduce(callback[, initialValue])» используется для последовательной обработки каждого элемента массива с сохранением промежуточного результата
+
+		(function () {
+
+			/*Перепишите цикл через map*/
+
+			if(0) {
+
+				var arr = ["Есть", "жизнь", "на", "Марсе"];
+				var arrLength = arr.map(function(item) {
+					return item.length;
+				});
+
+				console.log(arrLength)
+			}
+
+			/*Массив частичных сумм*/
+
+			if(0) {
+
+				$arr = [1,2,3,4,5]
+
+				function getSums(arr) {
+
+					var tmp = [];
+
+					arr.reduce(function(sum, current) {
+						tmp.push(sum + current);
+						return sum + current;
+					}, 0);
+
+					return tmp;
+
+				}
+
+				console.log(getSums($arr));
+
+			}
+
+		})();
+
+		/*==== МАССИВЫ: ПЕРЕБИРАЮЩИЕ МЕТОДЫ END ====*/
+
+
+		/*==== ПСЕВДОМАССИВ АРГУМЕНТОВ "ARGUMENTS" START ====*/
+		// arguments[0] - аргументы
+		(function () {
+
+			var vasya = {
+				age: 21,
+				name: 'Вася',
+				surname: 'Петров'
+			};
+
+			var user = {
+				isAdmin: false,
+				isEmailConfirmed: true
+			};
+
+			var student = {
+				university: 'My university'
+			};
+
+			copy(vasya, user, student);
+
+			console.log( vasya.isAdmin );
+			console.log( vasya.university ); 
+
+		})();
+		/*==== ПСЕВДОМАССИВ АРГУМЕНТОВ "ARGUMENTS" END ====*/
 
 	</script>
 
