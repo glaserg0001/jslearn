@@ -689,28 +689,140 @@
 		// arguments[0] - аргументы
 		(function () {
 
-			var vasya = {
-				age: 21,
-				name: 'Вася',
-				surname: 'Петров'
-			};
+			/*Проверка на аргумент-undefined*/
+			if(0) {
+				function f(x) {
+					console.log(arguments.length ? 1 : 0)
+				}
 
-			var user = {
-				isAdmin: false,
-				isEmailConfirmed: true
-			};
+				f(undefined); 
+				f();
+			}
 
-			var student = {
-				university: 'My university'
-			};
+			/*Сумма аргументов*/
+			if(0) {
 
-			copy(vasya, user, student);
+				function sum() {
+					var result = 0;
 
-			console.log( vasya.isAdmin );
-			console.log( vasya.university ); 
+					for(key in arguments) {
+						result += arguments[key];
+					}
+
+					console.log(result);
+				}
+
+				sum();
+				sum(1);
+				sum(1, 2);
+				sum(1, 2, 3);
+				sum(1, 2, 3, 4);
+			}
 
 		})();
 		/*==== ПСЕВДОМАССИВ АРГУМЕНТОВ "ARGUMENTS" END ====*/
+
+		/*==== ДАТА И ВРЕМЯ START ====*/
+		var now = new Date(); // такущая дата
+
+		(function () {
+
+			/*Создайте дату*/
+			if(0) {
+				var date = new Date(2012, 1, 20, 3, 12);
+				console.log(date);
+			}
+
+			/*Имя дня недели*/
+
+			if(0) {
+				function getWeekDay(date) {
+
+					var dayNum = date.getDay();
+
+					var dayName = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+					return dayName[dayNum];
+
+				}
+
+				var date1 = new Date(2012,0,3);
+
+				console.log(getWeekDay(date1));
+			}
+
+			/*День недели в европейской нумерации*/
+			if(0) {
+
+				function getLocalDay(date) {
+					var num = date.getDay();
+					if(num == 0) num = 7;
+					return num;
+				}
+				var date2 = new Date(2012, 0, 3);
+				console.log(getLocalDay(date2));
+			}
+
+			/*День указанное количество дней назад*/
+			if(0) {
+				function getDateAgo(date, days) {
+					var newDate = new Date(date);
+					newDate.setDate(newDate.getDate() - days);
+					return newDate.getDate();
+				}
+
+				var date3 = new Date(2015, 0, 2);
+
+				console.log(getDateAgo(date3, 1));
+				console.log(getDateAgo(date3, 2));
+				console.log(getDateAgo(date3, 365));
+			}
+
+			/*Последний день месяца?*/
+			if(0) {
+				function getLastDayOfMonth(year, month) {
+					var date4 = new Date(year, month + 1);
+					date4.setDate(date4.getDate() - 1);
+					return date4.getDate();
+				}
+				console.log(getLastDayOfMonth(2012, 1));
+			}
+
+			/*Сколько секунд уже прошло сегодня?*/
+			if(0) {
+
+				function getSecondsToday() {
+					var date5 = new Date();
+					return date5.getHours() * 3600 + date5.getMinutes() * 60 + date5.getSeconds();
+					
+				}
+
+				console.log(getSecondsToday());
+
+			}
+
+			/*Сколько секунд - до завтра?*/
+
+		if(1) {
+
+				function getSecondsToTomorrow() {
+					var date6 = new Date();
+					return 86400 - (date6.getHours() * 3600 + date6.getMinutes() * 60 + date6.getSeconds());
+					
+				}
+
+				console.log(getSecondsToTomorrow());
+
+			}
+
+
+
+
+
+
+
+
+		})();
+		/*==== ДАТА И ВРЕМЯ END ====*/
 
 	</script>
 

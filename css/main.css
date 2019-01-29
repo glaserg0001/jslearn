@@ -71,6 +71,7 @@ a:hover {
   background-color: #f7f7f7;
   text-transform: uppercase;
   font-weight: 700;
+  user-select: none;
 }
 
 .back:hover {
