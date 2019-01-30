@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<ul>
+		<li><a href="/" class="back">to home</a></li>
+		<li class="list-item"><a href="https://learn.javascript.ru/functions-closures" target="blank">Замыкания, область видимости</a></li>
+	</ul>
+	
+	<script>
+
+	var a
+		(function () {
+		})();
+		
+		/*==== ГЛОБАЛЬНЫЙ ОБЪЕКТ START ====*/
+		(function () {
+
+			console.log(a)
+		})();
+		/*==== ГЛОБАЛЬНЫЙ ОБЪЕКТ END ====*/
+
+	</script>
+
+</body>
+</html>

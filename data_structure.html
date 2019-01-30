@@ -789,7 +789,6 @@
 
 			/*Сколько секунд уже прошло сегодня?*/
 			if(0) {
-
 				function getSecondsToday() {
 					var date5 = new Date();
 					return date5.getHours() * 3600 + date5.getMinutes() * 60 + date5.getSeconds();
@@ -797,29 +796,77 @@
 				}
 
 				console.log(getSecondsToday());
-
 			}
 
 			/*Сколько секунд - до завтра?*/
 
-		if(1) {
-
+			if(0) {
 				function getSecondsToTomorrow() {
 					var date6 = new Date();
 					return 86400 - (date6.getHours() * 3600 + date6.getMinutes() * 60 + date6.getSeconds());
-					
 				}
 
 				console.log(getSecondsToTomorrow());
-
 			}
 
 
+			/*Вывести дату в формате дд.мм.гг*/
+			if(0) {
+				function formatDate(date) {
+					var hours = date.getFullYear().toString().slice(2);
 
+					var month = date.getMonth() + 1;
+					if (month < 10) month = '0' + month;
+					var num = date.getDate();
+					if (num < 10) num = '0' + num;
 
+					var arr = [];
+					arr.push(num);
+					arr.push(month);
+					arr.push(hours);
 
+					return arr.join('.');
+				}
 
+				date7 = new Date(2014, 0, 30);
 
+				console.log(formatDate(date7));
+			}
+
+			/*Относительное форматирование даты*/
+			if(0) {
+				function formatDate(date) {
+					var diff = new Date() - date;
+
+					if (diff < 1000) return 'только что'
+
+					var sec = Math.floor(diff / 1000);
+
+					if (sec < 60) return sec + ' сек. назад';
+
+					var min = Math.floor(diff / 60000);
+					if (min < 60) return min + ' мин. назад';
+
+					date = [
+					'0' + date.getDate(),
+					'0' + (date.getMonth() + 1),
+					'' + date.getFullYear(),
+					'0' + date.getHours(),
+					'0' + date.getMinutes()
+					];
+
+					for (var i = 0; i < date.length; i++) {
+						date[i] = date[i].slice(-2);
+					}
+
+					return date.slice(0, 3).join('.') + ' ' + date.slice(3).join(':');
+				}
+
+				console.log( formatDate(new Date(new Date - 1)) );
+				console.log( formatDate(new Date(new Date - 30 * 1000)) );
+				console.log( formatDate(new Date(new Date - 5 * 60 * 1000)) );
+				console.log( formatDate(new Date(new Date - 86400 * 1000)) );
+			}
 
 		})();
 		/*==== ДАТА И ВРЕМЯ END ====*/
