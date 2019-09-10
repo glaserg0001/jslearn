@@ -43,8 +43,9 @@
 
 		// ==== DOM
 		// Добавить класс
-		elem.classList.add('class'); // not for IE9
-		elem.className += " class";
+		var elem = document.body;
+		elem.classList.add('class1'); // not for IE9
+		elem.className += " class2";
 
 
 		// LexicalEnvironment (лексическое окружение, объект переменных) - специальный внутренний объект функции, который создаётся при её запуске. Все переменные - его свойства

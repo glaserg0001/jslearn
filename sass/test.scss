@@ -1,0 +1,27 @@
+@function color($key: "dark") {
+  @return map-get($colors, $key);
+}
+
+$colors: (
+    dark:        #2d2423, // black
+    lighter1:    #766a65, // lighter1
+    lighter2:    #9f9593, // lighter2
+    lighter3:    #afa18f, // lighter3
+    lighter4:    #cac0b6, // lighter4
+    lighter5:    #d4d2d0, // lighter5
+    light:       #fff, // White
+    transparent: transparent,
+    
+    primary:          #e60053, // pink
+    primary_hover:    #b00837, // pink hover
+    secondary:        #830051, // violet
+    secondary_hover:  #5e0034, // violet hover
+    tertiary_lighter: #eeaf00, // Yellow 1
+    tertiary:         #f59a00, // Yellow 2
+    error_lighter:    #de684b, // Orange 1
+    error:            #de422d, // Orange 2
+);
+
+.color {
+    color: color('error');
+}
