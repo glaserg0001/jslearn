@@ -73,9 +73,22 @@ a
 	&:focus
 		outline: none
 
-.git-link
-	&-logo
-		width: 1em
-		height: 1em
-	&-text
-	color: green
+.git
+	&-link
+		display: inline-flex
+		justify-content: space-between
+		align-items: center
+		padding: .3em 1em
+		font-size: 20px
+		color: #fff
+		background-color: #24292e
+		border-radius: 0 0 .4em 0
+		&:hover
+			color: #c1c1c1
+		&-logo
+			width: 1em
+			height: 1em
+			font-size: 1.5em
+			margin-right: .24em
+			fill: currentColor
+		&-text
